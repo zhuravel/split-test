@@ -8,6 +8,16 @@ Download binary from GitHub releases page:
 
 https://github.com/mtsmfm/split-test/releases
 
+### Building from source
+
+To build for Linux ARM64 (useful for CI environments), you can use the provided build script:
+
+```bash
+./build-linux-arm64.sh
+```
+
+This script uses Docker to cross-compile the binary for Linux ARM64, keeping your host system clean. The resulting binary will be located at `target/aarch64-unknown-linux-gnu/release/split-test`.
+
 ## Usage
 
 split-test command outputs test groups to stdout depends on its executing time.
