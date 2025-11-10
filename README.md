@@ -10,13 +10,15 @@ https://github.com/mtsmfm/split-test/releases
 
 ### Building from source
 
-To build for Linux ARM64 (useful for CI environments), you can use the provided build script:
+To build for Linux (both ARM64 and x64, useful for CI environments), you can use the provided build script:
 
 ```bash
-./build-linux-arm64.sh
+./build-linux.sh
 ```
 
-This script uses Docker to cross-compile the binary for Linux ARM64, keeping your host system clean. The resulting binary will be located at `target/aarch64-unknown-linux-gnu/release/split-test`.
+This script uses Docker to cross-compile binaries for both Linux ARM64 and x64, keeping your host system clean. The resulting binaries will be located at:
+- ARM64: `target/aarch64-unknown-linux-gnu/release/split-test`
+- x64: `target/x86_64-unknown-linux-gnu/release/split-test`
 
 ## Usage
 
