@@ -13,7 +13,9 @@ docker run --rm \
   -v "$PWD":/workspace \
   -w /workspace \
   rust:latest \
-  cargo build --release --target aarch64-unknown-linux-gnu
+  sh -c "rustup target add aarch64-unknown-linux-gnu && \
+         apt-get update && apt-get install -y gcc-aarch64-linux-gnu && \
+         CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-linux-gnu-gcc cargo build --release --target aarch64-unknown-linux-gnu"
 
 # Build for x64
 echo ""
@@ -22,7 +24,9 @@ docker run --rm \
   -v "$PWD":/workspace \
   -w /workspace \
   rust:latest \
-  cargo build --release --target x86_64-unknown-linux-gnu
+  sh -c "rustup target add x86_64-unknown-linux-gnu && \
+         apt-get update && apt-get install -y gcc-x86-64-linux-gnu && \
+         CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=x86_64-linux-gnu-gcc cargo build --release --target x86_64-unknown-linux-gnu"
 
 echo ""
 echo "✅ Build completed successfully!"
